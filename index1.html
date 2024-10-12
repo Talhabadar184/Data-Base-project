@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color:black;
+}
+
+.first
+{
+    display: flex;
+    justify-content: space-around;
+    margin: 65px 0;
+}
+.leftfirst
+{
+    width: 674px;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 0px;
+}
+.leftfirst h2 
+{
+    color: purple;
+}
+.leftfirst h4 
+{
+    color: purple;
+}
+.tableinput
+{
+    height: 50px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.rightfirst img
+{
+    height: 70vh;
+    width: 496px;
+}
+.submission
+{
+    margin-top: 300px;
+    height: 32px;
+    width: 79px;
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+}
+.hassan
+{
+    margin-bottom: 0px;
+}
+
+.tableinput
+{
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+}
+.tableinput2
+{
+    color: white;
+    height: 50px;
+    margin-left: 200px;
+}
+
+#additional-inputs
+{
+    color: white;
+    height: 50px;
+    
+}
+
+.input-field {
+    display: block;
+    margin: 10px 0;
+    height: 35px;
+    width: 200px;
+    border-radius: 10px;
+;
+    
+    
+}
+    </style>
+    
+</head>
+<body>
+        <form action="index.php" method="POST">
+        <section class="first" >
+            <div class="leftfirst">
+                <h2>EVENT MANAGEMENT SYSTEM</h2>
+                <h4>Talha Badar L1F22BSCS0406</h4>
+                <h4 class="hassan">Hassan Jamshaid L1F22BSCS0422</h4>
+            </div>
+            <div class="rightfirst">
+                <img src="PngItem_1127587.png" alt="my png" />
+            </div>
+        </section>
+        <div class="tableinput2">
+            Table Name: <input class="tableinput" type="text" name="Table_Name" placeholder="enter table name you want to insert data">
+        </div>
+        <div id="additional-inputs">
+               <script>
+                     document.querySelector('.tableinput').addEventListener('input', function() {
+                            const tableName = this.value.toLowerCase();
+                            const additionalInputsDiv = document.getElementById('additional-inputs');
+                            
+                            if (tableName === 'event') {
+                            
+                                additionalInputsDiv.innerHTML = `
+                                    Event ID:<input class="input-field" type="text" name="eventid" placeholder="Enter id" required="required">
+                                    Event Name:<input class="input-field" type="text" name="eventname" placeholder="Enter name" required="required">
+                                    Description: <input class="input-field" type="text" name="description" placeholder="Enter description" required="required">
+                                    Start date:<input class="input-field" type="text" name="startdate" placeholder="Enter date" required="required">
+                                    End date<input class="input-field" type="text" name="enddate" placeholder="Enter date" required="required">
+                                      `;
+             }
+                             else if(tableName === 'location')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                    Location ID:<input class="input-field" type="text" name="locationid" placeholder="Enter id">
+                                    Venue Name:<input class="input-field" type="text" name="venuename" placeholder="Enter name">
+                                    City: <input class="input-field" type="text" name="city" placeholder="Enter city">
+                                    State:<input class="input-field" type="text" name="state" placeholder="Enter state">
+                                    Capacity<input class="input-field" type="text" name="capacity" placeholder="Enter capacity">     
+                                `;
+                            }
+                            else if(tableName === 'organizer')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                    Organizer ID:<input class="input-field" type="text" name="organizerid" placeholder="Enter id">
+                                    First Name:<input class="input-field" type="text" name="firstname" placeholder="Enter name">
+                                    Last Name: <input class="input-field" type="text" name="lastname" placeholder="Enter name">
+                                    Company Name:<input class="input-field" type="text" name="companyname" placeholder="Enter company">
+                                `;
+                            }
+                            else if(tableName === 'organizerphonenum')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                OrganizerPhonenum1 :<input class="input-field" type="text" name="OrganizerPhonenum1" placeholder="Enter ph.number">
+                                OrganizerPhonenum2 :<input class="input-field" type="text" name="OrganizerPhonenum2" placeholder="Enter ph.number">
+                                Organizer ID:<input class="input-field" type="text" name="organizerid" placeholder="Enter id">
+                                `;
+                            }
+                            else if(tableName === 'organizeremail')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                OrganizerEmail1 :<input class="input-field" type="text" name="organizeremail1" placeholder="Enter email">
+                                OrganizerEmail2 :<input class="input-field" type="text" name="organizeremail2" placeholder="Enter email">
+                                Organizer ID:<input class="input-field" type="text" name="organizerid" placeholder="Enter id">
+                               `;
+                            }
+                            else if(tableName === 'eventtype')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Event Type :<input class="input-field" type="text" name="eventtype" placeholder="Enter event type">
+                                EventType Name :<input class="input-field" type="text" name="Organizeremail2" placeholder="Enter eventtype name">
+                                Event Description: <input class="input-field" type="text" name="description" placeholder="Enter description">
+                                `;
+                            }
+                            else if(tableName === 'attendee')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Attendee ID:<input class="input-field" type="text" name="attendeeid" placeholder="Enter id">
+                                First Name:<input class="input-field" type="text" name="firstname" placeholder="Enter name">
+                                Last Name: <input class="input-field" type="text" name="lastname" placeholder="Enter name">
+                                `;
+                            }
+                            else if(tableName === 'AttendeePhonenum')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                AttendeePhonenum1 :<input class="input-field" type="text" name="AttendeePhonenum1" placeholder="Enter ph.number">
+                                AttendeePhonenum2 :<input class="input-field" type="text" name="AttendeePhonenum2" placeholder="Enter ph.number">
+                                Attendee ID:<input class="input-field" type="text" name="attendeeid" placeholder="Enter id">
+                                `;
+                            }
+                            else if(tableName === 'ticket')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Ticket ID:<input class="input-field" type="text" name="ticketid" placeholder="Enter id">
+                                Ticket type :<input class="input-field" type="text" name="tickettype" placeholder="Enter type">
+                               Purchase Date: <input class="input-field" type="text" name="purchasedate" placeholder="Enter date">
+                                Price: <input class="input-field" type="text" name="price" placeholder="Enter price">
+                                
+                                `;
+                            }
+                            else if(tableName === 'sponsor')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Sponsor ID:<input class="input-field" type="text" name="sponsorid" placeholder="Enter id">
+                                Spnsor Name :<input class="input-field" type="text" name="spnsorname" placeholder="Enter name">
+                               Contact Person: <input class="input-field" type="text" name="contactperson" placeholder="Enter number">
+                                Email: <input class="input-field" type="text" name="email" placeholder="Enter email">
+                                Contact Number: <input class="input-field" type="text" name="contactnumber" placeholder="Enter number">
+                                `;
+                            }
+                            else if(tableName === 'speaker')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Speaker ID:<input class="input-field" type="text" name="speakerid" placeholder="Enter id">
+                                Speaker Name :<input class="input-field" type="text" name="speakername" placeholder="Enter name">
+                               Contact Person: <input class="input-field" type="text" name="contactperson" placeholder="Enter number">
+                                `;
+                            }
+                            else if(tableName === 'task')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Task ID:<input class="input-field" type="text" name="taskid" placeholder="Enter id">
+                                Description :<input class="input-field" type="text" name="description" placeholder="Enter description">
+                               Status: <input class="input-field" type="text" name="status" placeholder="Enter status">
+                                `;
+                            }
+                            else if(tableName === 'feedback')
+                            {
+                                additionalInputsDiv.innerHTML = `
+                                Feedback ID:<input class="input-field" type="text" name="feedbackid" placeholder="Enter id">
+                                Ratings :<input class="input-field" type="text" name="ratings" placeholder="Enter rating">
+                               Comments: <input class="input-field" type="text" name="comments" placeholder="Enter comment">
+                                `;
+                            }
+                
+                
+                        });
+                   </script>    
+        </div>
+        <div>
+            <button class="submission" type="submit">Submit</button>
+        </div>
+        </form>
+    </section>
+    
+    
+    
+    
+    </body>
+</html>
